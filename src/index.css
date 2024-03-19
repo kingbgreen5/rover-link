@@ -1,0 +1,190 @@
+:root{
+background-color: black;
+font-family: monospace;
+}
+
+.header {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 300px; /* Adjust height as needed */
+}
+
+.header-img {
+height: 300px;
+width: auto;
+}
+
+
+
+.rover-select{
+    color: white;
+    margin:2%;
+    font-size: x-large;
+}
+
+.selected-rover{
+    color: white;
+    font-family: monospace;
+}
+
+
+
+
+
+.searchbar-div {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    
+}
+.search-bar{
+  border-radius: 6px;
+    background: linear-gradient(0deg ,  #422d24f9, #cac2bcc9, #f5f3f2ec, #f7f5f5f1 );
+    border: none;
+    width:40%;
+    height: 1.5em;
+
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: monospace;
+    font-weight: 1000;
+    font-size: x-large;
+    box-shadow:  0 0 15px #fecaca65;
+    /* padding: .4em; */
+}
+.search-bar:focus {
+    border-color: #5c2a1c; /* Change border color when focused */
+    outline: none; 
+    box-shadow:  0 0 15px #fcfbfb47;
+}
+
+
+/* Satellite Search */
+/* ultimately this should be setup so that if there is data, the button is lit up */
+.material-symbols-outlined{
+    position: relative;
+    border-radius: 7px;
+    padding: .17em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 1%;
+    background-color: #eee6e2;
+    color: rgba(27, 24, 24, 0.715);
+    border: none;
+    box-shadow:  0 0 17px #b3adad,#968989 0 -3px 0 inset;
+}
+
+.material-symbols-outlined:hover{
+background:#ffffff;
+box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff, 0 0 50px #f4baba,#D6D6E7 0 -3px 0 inset;
+border: none;
+}
+
+.material-symbols-outlined:active {
+  box-shadow: #18181d 0 3px 7px inset;
+  transform: translateY(1px);
+  background-color: #eee6e2;
+}
+
+.data-from-rover-name{
+        display: flex; 
+    align-items: center; 
+    justify-content: center;
+    color: white;
+}
+
+
+
+.photoCard-container{
+    background-color: rgb(0, 0, 0);
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 90%;
+     display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+
+}
+
+.photoCard-div{
+    position: relative;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    padding: .5em;
+}
+.photo{
+    background-color: #6e6e6e55;
+    padding: 1em;
+    max-width: 100%;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.cameraName-div{
+    background-color: rgba(0, 0, 0, 0.512);
+    color: rgba(255, 255, 255, 0.527);
+    position: absolute;
+    bottom: 5px;
+    padding: .2em;
+    padding-left:.5em;
+    padding-right:.5em;
+    border-radius: 5px;
+    font-size: xx-large;
+    opacity: 0; 
+    transition: opacity 0.4s ease;
+
+}
+
+.photo:hover + .cameraName-div {
+    opacity: 1;
+}
+
+
+
+
+.led-green {
+  margin: 0 auto;
+  width: 24px;
+  height: 24px;
+  background-color: #aaff00;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #223006 0 -5px 9px, #89FF00 0 -1px 16px, #a6f947 0 -8px 22px ;
+}
+
+.led-off {
+    margin: 0 auto;
+    width: 24px;
+    height: 24px;
+    background-color: #589f4f93;
+    border-radius: 50%;
+    box-shadow: rgba(233, 205, 205, 0) 0 -1px 7px 1px, inset #191a17 0 -5px 9px, #000000 0 2px 12px;
+  }
+
+
+
+  @media (max-width: 768px) {
+    .header-img {
+        height: 200px;
+    }
+    .header{
+        height: 200px;
+    }
+    .search-bar{
+        width: 60%;
+        font-size: large;
+    }
+    .material-symbols-outlined{
+        padding: .11em;
+        padding-left: .5em;
+        padding-right: .5em;
+        margin: 1%;
+    }
+
+}
