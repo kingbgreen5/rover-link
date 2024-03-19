@@ -1,6 +1,12 @@
 :root{
 background-color: black;
 font-family: monospace;
+color: white;
+}
+
+.centered-text{
+       display: flex;
+    justify-content: center; /* Center content horizontally */
 }
 
 .header {
@@ -15,13 +21,14 @@ font-family: monospace;
 height: 300px;
 width: auto;
 }
-
-
-
-.rover-select{
+/*                                                                    ROVER SELECTION */
+.rover-select-container{
     color: white;
     margin:2%;
     font-size: x-large;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
 }
 
 .selected-rover{
@@ -29,10 +36,49 @@ width: auto;
     font-family: monospace;
 }
 
+.rover-select-button{
+    margin: 1.5%;
+    padding: 1%;
+    border-radius: 7px;
+    width: 10em;
+    background-color: #eee6e2f0;
+    color: rgba(27, 24, 24, 0.537);
+    border: none;
+    box-shadow:  0 0 17px #b3adad,#968989 0 -4.5px 0 inset;
+}
+
+.rover-select-button:hover{
+    background-color: #eee6e2;
+    box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff,#D6D6E7 0 -4px 0 inset;
+    border: none;
+}
+
+.rover-select-button:active{
+    background-color: #eee6e2;
+      transform: translateY(2px);
+}
+
+.rover-select-button.selected{
+box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff, 0 0 50px #f4baba,#D6D6E7 0 -3px 0 inset;
+    margin: 1.5%;
+    background-color: rgb(255, 255, 255);
+    padding: 1%;
+    border-radius: 7px;
+    color: #5c2a1c;
+
+}
+
+.select-rover{
+    color: white;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+
+}
 
 
 
-
+/*                                                                  -------SEARCH BAR------- */
 .searchbar-div {
     display: flex; 
     align-items: center; 
@@ -61,7 +107,7 @@ width: auto;
 }
 
 
-/* Satellite Search */
+/*                                                          Satellite Search BUTTON */
 /* ultimately this should be setup so that if there is data, the button is lit up */
 .material-symbols-outlined{
     position: relative;
@@ -79,6 +125,7 @@ width: auto;
 .material-symbols-outlined:hover{
 background:#ffffff;
 box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff, 0 0 50px #f4baba,#D6D6E7 0 -3px 0 inset;
+box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff,#D6D6E7 0 -4px 0 inset;
 border: none;
 }
 
@@ -89,7 +136,7 @@ border: none;
 }
 
 .data-from-rover-name{
-        display: flex; 
+    display: flex; 
     align-items: center; 
     justify-content: center;
     color: white;
@@ -188,3 +235,7 @@ border: none;
     }
 
 }
+
+
+
+

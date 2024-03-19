@@ -42,6 +42,7 @@ const CuriositySearchBar = ({ photoArray, setPhotoArray }) => {
 
         //   console.log(Data)
           if (data.photos.length === 0) {
+            
             displayError();
             return;
           }
@@ -83,6 +84,7 @@ useEffect(() =>{
 
 return(
 
+  
 <div>
 
 <form className='searchbar-div' onSubmit={handleFormSubmit}>
@@ -103,7 +105,6 @@ type="submit"
 >
    satellite_alt
 </button>
-
 <br />
 
 {photoArray && photoArray.length > 0 ? 
@@ -114,6 +115,7 @@ type="submit"
 </div>
 </div>
 </div>
+
 : 
 <div>
 <div class="container">
@@ -121,9 +123,18 @@ type="submit"
 <div class="led-off"></div>
 </div>
 </div>
+
 </div>
+
        }
 </form>
+
+
+{photoArray && photoArray.length > 0 ? 
+<div>
+</div>
+:
+<><h1 className='centered-text'>COM LINK: OFFLINE</h1></>}
 </div>
 )
 }

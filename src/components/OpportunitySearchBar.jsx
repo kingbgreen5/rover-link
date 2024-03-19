@@ -66,7 +66,7 @@ useEffect(() =>{
 
 
 
-     const opportunityDates="2004-24-01 | 2018-06-10"
+     const opportunityDates="2004-24-01 | 2018-06-09"
 
 
 return(
@@ -112,6 +112,12 @@ type="submit"
 </div>
        }
 </form>
+
+{photoArray && photoArray.length > 0 ? 
+<div>
+</div>
+:
+<><h1 className='centered-text'>COM LINK: OFFLINE</h1></>}
 </div>
 )
 }

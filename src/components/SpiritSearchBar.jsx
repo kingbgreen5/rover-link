@@ -112,6 +112,13 @@ type="submit"
 </div>
        }
 </form>
+
+{photoArray && photoArray.length > 0 ? 
+<div>
+</div>
+:
+<><h1 className='centered-text'>COM LINK: OFFLINE</h1></>}
+
 </div>
 )
 }
