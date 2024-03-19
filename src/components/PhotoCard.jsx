@@ -8,6 +8,10 @@ return(
     {photoArray && photoArray.length > 0 ? 
         <div >
             <h1 className='data-from-rover-name'>INCOMING DATA FROM: {photoArray[0].rover.name}</h1>
+           <h3>Photos Received: {photoArray.length}</h3>
+            <h3>Earth Date: {photoArray[0].earth_date}</h3>
+            <h3>Sol: {photoArray[0].sol}</h3>
+            
            
         {photoArray.map((photo,index) => (
 
@@ -23,7 +27,9 @@ return(
     </div>
         : 
         <>
-        Com Link: Offline</>}
+        <div>
+            {/* <h1>COM LINK: OFFLINE</h1> */}
+            </div></>}
 
 
 </div>
@@ -32,3 +38,12 @@ return(
 
 
 export default PhotoCard;            
+
+// 
+
+//     <div></div>
+// : 
+// <>
+// <div>
+//     <h1>COM LINK: OFFLINE</h1>
+//     </div></>}
