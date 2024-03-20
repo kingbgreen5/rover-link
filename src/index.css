@@ -223,6 +223,26 @@ border: none;
     .header{
         height: 200px;
     }
+    .rover-select-button{
+       padding: .75em;
+    }
+
+.rover-select-button:hover{
+    padding: .75em;
+}
+
+.rover-select-button:active{
+    padding: .75em;
+}
+
+.rover-select-button.selected{
+    padding: .75em;
+}
+
+
+
+
+
     .search-bar{
         width: 65%;
         font-size: large;
@@ -233,7 +253,7 @@ border: none;
  
     }
     .material-symbols-outlined{
-        padding: .11em;
+        padding: .3em;
         padding-left: .5em;
         padding-right: .5em;
         margin: 1%;
