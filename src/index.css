@@ -1,8 +1,23 @@
 :root{
 background-color: black;
-font-family: monospace;
+/* font-family: monospace; */
 color: white;
+
+font-family: "Orbitron", sans-serif;
+
+
+
 }
+
+
+.orbitron-font {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
 
 .centered-text{
        display: flex;
@@ -29,6 +44,7 @@ width: auto;
     display: flex; 
     align-items: center; 
     justify-content: center;
+    font-family: "Orbitron", sans-serif;
 }
 
 .selected-rover{
@@ -45,6 +61,7 @@ width: auto;
     color: rgba(27, 24, 24, 0.537);
     border: none;
     box-shadow:  0 0 17px #b3adad,#968989 0 -4.5px 0 inset;
+    font-family: "Orbitron", sans-serif;
 }
 
 .rover-select-button:hover{
@@ -73,6 +90,7 @@ box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff, 0 0 50px #f4baba,#D6D6E7 0 -3px 0
     display: flex; 
     align-items: center; 
     justify-content: center;
+    font-size: medium;
 
 }
 

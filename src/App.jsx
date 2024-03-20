@@ -4,17 +4,20 @@ import RoverSelection from './components/RoverSelection.jsx';
 import CuriositySearchBar from './components/curiositySearchBar.jsx';
 import PhotoCard from './components/PhotoCard.jsx';
 import OpportunitySearchBar from './components/OpportunitySearchBar.jsx';
-import SpiritSearchBar
- from './components/SpiritSearchBar.jsx';
+import SpiritSearchBar from './components/SpiritSearchBar.jsx';
+
+
+
 export default function App() {
   const [selectedRover, setSelectedRover] = useState('');
   const [photoArray, setPhotoArray] = useState([])
   const [data, setData] = useState({})
+  const [roverManifest, setRoverManifest] = useState('')
 
   return (
     <>
     <Header />
-    <RoverSelection selectedRover={selectedRover} setSelectedRover={setSelectedRover} />
+    <RoverSelection selectedRover={selectedRover} setSelectedRover={setSelectedRover} roverManifest={roverManifest} setRoverManifest={setRoverManifest}/>
     {/* <div className='selected-rover'> <h1>Selected Rover: {selectedRover}</h1>   </div> */}
     
 
