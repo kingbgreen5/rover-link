@@ -10,13 +10,14 @@ const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRov
 
         useEffect(() => {
             const fetchRoverManifest = async () => {
+          
                 var roverManifestURL = 'https://api.nasa.gov/mars-photos/api/v1/manifests/' + selectedRover + '/?api_key=0kRnAVYNc2gsCR3nOYw7LjB2uBvKsB75RLIkT25q';
                 console.log({ selectedRover });
                 console.log(roverManifestURL);
                 try {
                     const response = await fetch(roverManifestURL); // FETCH Request
                     if (response.ok) {
-                        const roverData = await response.json();
+                        var roverData = await response.json();
                         console.log(roverData);
 
                         // Handle the fetched roverData as needed, such as updating state
@@ -29,8 +30,7 @@ const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRov
                 }
             };
         
-            setRoverManifest(roverData)
-        
+            // setRoverManifest(roverData)
 
             fetchRoverManifest();
         }, [selectedRover]);
