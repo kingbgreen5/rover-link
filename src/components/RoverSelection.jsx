@@ -3,25 +3,26 @@ import React, { useEffect } from 'react';
 
 const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRoverManifest }) => {
 
+    
     const handleButtonClick = async (rover) => {
         setSelectedRover(rover);
+        console.log("roverManifest pre set:")
+        console.log(roverManifest)
            };
 
 
         useEffect(() => {
             const fetchRoverManifest = async () => {
-          
+    
                 var roverManifestURL = 'https://api.nasa.gov/mars-photos/api/v1/manifests/' + selectedRover + '/?api_key=0kRnAVYNc2gsCR3nOYw7LjB2uBvKsB75RLIkT25q';
-                console.log({ selectedRover });
-                console.log(roverManifestURL);
+                // console.log({ selectedRover });
+                // console.log(roverManifestURL);
                 try {
                     const response = await fetch(roverManifestURL); // FETCH Request
                     if (response.ok) {
                         var roverData = await response.json();
-                        console.log(roverData);
+                        await setRoverManifest(roverData.photo_manifest)
 
-                        // Handle the fetched roverData as needed, such as updating state
-                        // setRoverData(roverData);
                     } else {
                         throw new Error('Error fetching rover manifest');
                     }
@@ -30,16 +31,28 @@ const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRov
                 }
             };
         
-            // setRoverManifest(roverData)
+
 
             fetchRoverManifest();
+
         }, [selectedRover]);
 
+        useEffect(()=>{
+                console.log("Rover Manifest Post set:")
+                console.log(roverManifest)
+        }),[selectedRover]
 
 
 
     return (
+        
         <div className="rover-select-container">
+            {/* <button
+                className={`rover-select-button ${selectedRover === 'Curiosity' ? 'selected' : ''}`}
+                onClick={() => handleButtonClick('Perseverance')}
+            >
+                PERSEVERANCE
+            </button> */}
             <button
                 className={`rover-select-button ${selectedRover === 'Curiosity' ? 'selected' : ''}`}
                 onClick={() => handleButtonClick('Curiosity')}
@@ -58,6 +71,10 @@ const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRov
             >
                 SPIRIT
             </button>
+
+
+          
+
         </div>
     );
 };

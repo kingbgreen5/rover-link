@@ -66,7 +66,7 @@ useEffect(() =>{
 
 
 
-     const spiritDates="2004-03-01 | 2010-03-21"
+     const spiritDates="2004-01-04 | 2010-03-21"
 
 
 return(

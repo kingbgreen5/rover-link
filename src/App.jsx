@@ -5,23 +5,23 @@ import CuriositySearchBar from './components/curiositySearchBar.jsx';
 import PhotoCard from './components/PhotoCard.jsx';
 import OpportunitySearchBar from './components/OpportunitySearchBar.jsx';
 import SpiritSearchBar from './components/SpiritSearchBar.jsx';
-
+import DataCard from './components/DataCard.jsx';
 
 
 export default function App() {
   const [selectedRover, setSelectedRover] = useState('');
   const [photoArray, setPhotoArray] = useState([])
   const [data, setData] = useState({})
-  const [roverManifest, setRoverManifest] = useState('')
+  const [roverManifest, setRoverManifest] = useState(null)
+
 
   return (
     <>
     <Header />
     <RoverSelection selectedRover={selectedRover} setSelectedRover={setSelectedRover} roverManifest={roverManifest} setRoverManifest={setRoverManifest}/>
-    {/* <div className='selected-rover'> <h1>Selected Rover: {selectedRover}</h1>   </div> */}
-    
+    <DataCard roverManifest={roverManifest}/>
 
-      {selectedRover === '' && <h1 className='select-rover'>PLEASE SELECT ROVER</h1>  }   
+
       {selectedRover === 'Curiosity' && <CuriositySearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData} />  }
       {selectedRover === 'Spirit' && <SpiritSearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData}/>}
       {selectedRover === 'Opportunity' && <OpportunitySearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData}/>}

@@ -94,6 +94,15 @@ box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff, 0 0 50px #f4baba,#D6D6E7 0 -3px 0
 
 }
 
+.rover-manifest-card{
+    height: 200px;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
 
 
 /*                                                                  -------SEARCH BAR------- */

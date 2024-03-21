@@ -67,8 +67,7 @@ useEffect(() =>{
 
 
 
-       // gets CURRENT DATE
-    // Get the current date
+
     const currentDate = new Date();
 
     // Extract year, month, and day
@@ -83,10 +82,7 @@ useEffect(() =>{
 
 
 return(
-
-  
 <div>
-
 <form className='searchbar-div' onSubmit={handleFormSubmit}>
 <input 
 className='search-bar' 
