@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const OpportunitySearchBar = ({ photoArray, setPhotoArray }) => {
+const PerseveranceSearchBar = ({ photoArray, setPhotoArray }) => {
 
     const [lastDate, setLastDate] = useState([])
     const [formState, setFormState] = useState({ searchInput: ''});
-    const startDate = new Date('2004-01-25');
-    const endDate = new Date('2018-06-11');
-    const formDate = new Date(formState.searchInput);
-    const isInRange = formDate >= startDate && formDate <= endDate;
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -19,15 +16,12 @@ const OpportunitySearchBar = ({ photoArray, setPhotoArray }) => {
             ...formState,
             [name]: value,
         })
-  console.log(formState)
-
-
       };
 
       
       const handleFormSubmit = async (event) => {
         // usersSearchInput = formState.searchInput
-        var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?earth_date=' + formState.searchInput +  '&z&api_key=0kRnAVYNc2gsCR3nOYw7LjB2uBvKsB75RLIkT25q' 
+        var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=' + formState.searchInput +  '&z&api_key=0kRnAVYNc2gsCR3nOYw7LjB2uBvKsB75RLIkT25q' 
         event.preventDefault();
         console.log("Submit Button Clicked")
         // console.log(formState.searchInput);
@@ -48,6 +42,7 @@ const OpportunitySearchBar = ({ photoArray, setPhotoArray }) => {
 
         //   console.log(Data)
           if (data.photos.length === 0) {
+            
             displayError();
             return;
           }
@@ -72,31 +67,28 @@ useEffect(() =>{
 
 
 
-     const opportunityDates="2004-01-25  2018-06-11"
+
+    const currentDate = new Date();
+
+    // Extract year, month, and day
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is zero-based, so add 1 and pad with leading zeros if necessary
+    const day = String(currentDate.getDate()).padStart(2, '0'); // Pad day with leading zeros if necessary
+
+    // Format the date as YYYY-MM-DD
+    const todaysDate = `${year}-${month}-${day}`
+    const placeholderDates = '2012-08-06 | ' + todaysDate
+     const formattedDate = `${year}-${month}-${day}`;
 
 
 return(
-
-<div className='search-container'>
-
-
-{photoArray && photoArray.length > 0 ? 
 <div>
-<h1 className='centered-text'>IMAGE DATALINK</h1>
-
-</div>
-:
-<><h1 className='centered-text'>IMAGE DATALINK</h1>
-
-</>}
-
-
 <form className='searchbar-div' onSubmit={handleFormSubmit}>
 <input 
 className='search-bar' 
 type="text"
 name="searchInput"
-placeholder= 'YYYY-MM-DD'
+placeholder= 'Enter Valid Date' 
 value={formState.searchInput}
 onChange={handleChange}  
 />
@@ -109,27 +101,9 @@ type="submit"
 >
    satellite_alt
 </button>
-
 <br />
-{isInRange ? (
-             <div>
-<div class="container">
-<div class="led-box">
-<div class="led-green"></div>
-</div>
-</div>
-</div>
-            ) : (
-                <div>
-<div class="container">
-<div class="led-box">
-<div class="led-off"></div>
-</div>
-</div>
-</div>
-            )}
 
-{/* {photoArray && photoArray.length > 0 ? 
+{photoArray && photoArray.length > 0 ? 
 <div>
 <div class="container">
 <div class="led-box">
@@ -137,6 +111,7 @@ type="submit"
 </div>
 </div>
 </div>
+
 : 
 <div>
 <div class="container">
@@ -144,21 +119,20 @@ type="submit"
 <div class="led-off"></div>
 </div>
 </div>
+
 </div>
-       } */}
+
+       }
 </form>
 
 
-
-{isInRange ? (
-                <p> ACTIVATE INITIATE BUTTON TO BEGIN DATA TRANSFER</p>
-            ) : (
-                <p className='centered-text'>Enter date between {opportunityDates}</p>
-  
-            )}
-
+{photoArray && photoArray.length > 0 ? 
+<div>
+</div>
+:
+<><h1 className='centered-text'>COM LINK: OFFLINE</h1></>}
 </div>
 )
 }
 
-export default OpportunitySearchBar;
+export default PerseveranceSearchBar;

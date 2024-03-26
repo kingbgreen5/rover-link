@@ -13,7 +13,7 @@ font-family: "Orbitron", sans-serif;
 .orbitron-font {
   font-family: "Orbitron", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -56,7 +56,7 @@ width: auto;
     margin: 1.5%;
     padding: 1%;
     border-radius: 7px;
-    width: 10em;
+    width: 13em;
     background-color: #eee6e2f0;
     color: rgba(27, 24, 24, 0.537);
     border: none;
@@ -65,6 +65,7 @@ width: auto;
 }
 
 .rover-select-button:hover{
+
     background-color: #eee6e2;
     box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff,#D6D6E7 0 -4px 0 inset;
     border: none;
@@ -76,8 +77,9 @@ width: auto;
 }
 
 .rover-select-button.selected{
-box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff, 0 0 50px #f4baba,#D6D6E7 0 -3px 0 inset;
-    margin: 1.5%;
+    
+    box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff, 0 0 50px #f4baba,#D6D6E7 0 -3px 0 inset;
+
     background-color: rgb(255, 255, 255);
     padding: 1%;
     border-radius: 7px;
@@ -96,11 +98,12 @@ box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff, 0 0 50px #f4baba,#D6D6E7 0 -3px 0
 
 .rover-manifest-card{
     height: 200px;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(136, 136, 136, 0.455);
     display: flex; 
     align-items: center; 
     justify-content: center;
     margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 
@@ -213,7 +216,6 @@ border: none;
     font-size: xx-large;
     opacity: 0; 
     transition: opacity 0.4s ease;
-
 }
 
 .photo:hover + .cameraName-div {
@@ -244,41 +246,103 @@ border: none;
 
 
   @media (max-width: 768px) {
+    p{
+        margin: .5em
+    };
     .header-img {
         height: 200px;
     }
     .header{
         height: 200px;
+        display: none;
     }
     .rover-select-button{
-       padding: .75em;
+       padding-top:1em;
+       padding-bottom: 1em;
+       width: 100px;
+       margin: .8%;
+       font-size: small;
+       font-family: monospace;
+       font-stretch: condensed;
+       
     }
 
 .rover-select-button:hover{
     padding: .75em;
+    padding-top:1em;
+    padding-bottom: 1em;
+    width: 100px;
+    margin: .8%;
+    font-size: small;
+    font-family: monospace;
+    font-stretch: condensed;
 }
 
 .rover-select-button:active{
     padding: .75em;
+    padding-top:1em;
+    padding-bottom: 1em;
+    width: 100px;
+    margin: .8%;
+    font-size: small;
+    font-family: monospace;
+    font-stretch: condensed;
 }
 
 .rover-select-button.selected{
-    padding: .75em;
+       padding-top:1em;
+       padding-bottom: 1em;
+       width: 100px;
+       margin: .8%;
+       font-size: small;
+       font-family: monospace;
+       font-stretch: condensed;
+}
+
+.rover-manifest-card{
+    height: 100px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: #000000;
+    margin-top:0%;
+    font-size: small;
+}
+
+.grid-container {
+
+ height: 80px;
+ width: 265px;
+ margin-bottom: 1%;
+ padding: 1em;
+}
+
+.grid-item {
+    flex: 1;
+margin: .1%;
 }
 
 
 
+
+
+
+
+
+
+
+
+.search-container{
+    margin-top: 20%;
+}
 
 
     .search-bar{
         width: 65%;
         font-size: large;
         padding: 2%;
-    background: none;
-    background-color: rgb(237, 234, 234);
-
- 
+        background: none;
+        background-color: rgb(237, 234, 234);
     }
+
     .material-symbols-outlined{
         padding: .3em;
         padding-left: .5em;

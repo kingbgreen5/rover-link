@@ -1,27 +1,59 @@
 import React, { useState, useEffect } from 'react';
 
 
-const DataCard = ({ roverManifest }) => {
+const DataCard = ({ roverManifest, selectedRover }) => {
 
     const rm= roverManifest
     const curiosityLocation= ''
-    const opportunityLocation=''
-    const spiritLocation=''
+    const curiosityDistance=''
+    const opportunityLocation='Endeavour Crater';
+    const opportunityDistance='45.16 KM';
+    const spiritLocation='Columbia Hills'
+    const spiritDistance='7.73 KM'
+    const spiritObjective='Clues of past water'
+    // const perseveranceLocation''
+    // const perseveranceDistance ''
+
+    if (selectedRover == "Opportunity"){
+        const Location= opportunityLocation
+        const Distance = opportunityDistance
+    } else if (selectedRover== "Curiosity"){
+        
+    } else if (selectedRover== "Perseverance"){
+
+    } else if ( selectedRover== "Spirit"){
+
+    }
+
 
 return(
             
             <div className='rover-manifest-card'>
             {roverManifest ? (
-                <div>
+                <div className='grid-container'>
 
-                <h1>Rover Name: "{roverManifest.name}"</h1>
-                <h3>Status: - {roverManifest.status} -</h3>
-                <h1>Data Availible: {rm.landing_date} _ {rm.max_date}</h1>    
-                <h3>Total Photos: {roverManifest.total_photos}</h3>
-                
+                <h2>Mission Data</h2>
+                <p className='grid-item'>Status: -{rm.status}-</p>
+                {selectedRover === 'Opportunity' && <p className='grid-item'>Location: {opportunityLocation}</p>}
+                {selectedRover === 'Opportunity' && <p className='grid-item'>Distance Traveled: {opportunityDistance}</p>}           
+
+                <p className='grid-item'>Landed: {rm.landing_date}</p>    
+                <p className='grid-item'>Last Data: {rm.max_date}</p>
+
+
+
+
+
                 </div>
             ) : (
-                <h2>Please Select Rover</h2>
+            
+               <div className='grid-container'>
+          
+                <h1 className='grid-item'>   PLEASE SELECT ROVER  </h1>
+  
+                
+                </div>
+                
             )}
         </div>
 

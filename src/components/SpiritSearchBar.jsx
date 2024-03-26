@@ -72,16 +72,24 @@ useEffect(() =>{
 return(
 
 <div>
+  {photoArray && photoArray.length > 0 ? 
+<div>
+</div>
+:
+<>
+<h2 className='centered-text'>Enter Valid Date</h2></>}
+
 
 <form className='searchbar-div' onSubmit={handleFormSubmit}>
 <input 
 className='search-bar' 
 type="text"
 name="searchInput"
-placeholder= {spiritDates} 
+placeholder= "YYYY-MM-DD"
 value={formState.searchInput}
 onChange={handleChange}  
 />
+</form>
 
 <button 
 id="search-button" 
@@ -92,7 +100,6 @@ type="submit"
    satellite_alt
 </button>
 
-<br />
 
 {photoArray && photoArray.length > 0 ? 
 <div>
@@ -111,13 +118,8 @@ type="submit"
 </div>
 </div>
        }
-</form>
 
-{photoArray && photoArray.length > 0 ? 
-<div>
-</div>
-:
-<><h1 className='centered-text'>COM LINK: OFFLINE</h1></>}
+
 
 </div>
 )

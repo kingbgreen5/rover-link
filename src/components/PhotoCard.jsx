@@ -28,7 +28,8 @@ return(
         : 
         <>
         <div>
-            {/* <h1>COM LINK: OFFLINE</h1> */}
+            {/* <h1>IMAGE COM-LINK: OFFLINE</h1>
+           <h3>Enter Valid Date</h3> */}
             </div></>}
 
 
