@@ -7,10 +7,10 @@ return(
 <div className='photoCard-container' >
     {photoArray && photoArray.length > 0 ? 
         <div >
-            <h1 className='data-from-rover-name'>INCOMING DATA FROM: {photoArray[0].rover.name}</h1>
-           <h3>Photos Received: {photoArray.length}</h3>
-            <h3>Earth Date: {photoArray[0].earth_date}</h3>
-            <h3>Sol: {photoArray[0].sol}</h3>
+            <h2 className='data-from-rover-name'>DATA RECEIVED FROM: {photoArray[0].rover.name}</h2>
+           <p>Photos Received: {photoArray.length}</p>
+            <p>Earth Date: {photoArray[0].earth_date}</p>
+            <p>Sol: {photoArray[0].sol}</p>
             
            
         {photoArray.map((photo,index) => (

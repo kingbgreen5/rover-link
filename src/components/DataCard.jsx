@@ -11,19 +11,11 @@ const DataCard = ({ roverManifest, selectedRover }) => {
     const spiritLocation='Columbia Hills'
     const spiritDistance='7.73 KM'
     const spiritObjective='Clues of past water'
+
+
+
     // const perseveranceLocation''
     // const perseveranceDistance ''
-
-    if (selectedRover == "Opportunity"){
-        const Location= opportunityLocation
-        const Distance = opportunityDistance
-    } else if (selectedRover== "Curiosity"){
-        
-    } else if (selectedRover== "Perseverance"){
-
-    } else if ( selectedRover== "Spirit"){
-
-    }
 
 
 return(
@@ -32,11 +24,12 @@ return(
             {roverManifest ? (
                 <div className='grid-container'>
 
-                <h2>Mission Data</h2>
-                <p className='grid-item'>Status: -{rm.status}-</p>
+                {/* <h2>Mission Data</h2> */}
+                <p className='grid-item'>Mission Status: -{rm.status}-</p>
                 {selectedRover === 'Opportunity' && <p className='grid-item'>Location: {opportunityLocation}</p>}
                 {selectedRover === 'Opportunity' && <p className='grid-item'>Distance Traveled: {opportunityDistance}</p>}           
-
+                {selectedRover === 'Spirit' && <p className='grid-item'>Location: {spiritLocation}</p>}
+                {selectedRover === 'Spirit' && <p className='grid-item'>Distance Traveled: {spiritDistance}</p>}   
                 <p className='grid-item'>Landed: {rm.landing_date}</p>    
                 <p className='grid-item'>Last Data: {rm.max_date}</p>
 
@@ -48,9 +41,13 @@ return(
             ) : (
             
                <div className='grid-container'>
-          
-                <h1 className='grid-item'>   PLEASE SELECT ROVER  </h1>
-  
+               {/* <h2>Mission Data</h2> */}
+                <p className='grid-item'>Mission Status: NO ROVER</p>
+                {/* <h1 className='grid-item'>   PLEASE SELECT ROVER  </h1> */}
+                <p className='grid-item'>Location:</p>
+                <p className='grid-item'>Distance Traveled:</p>
+                <p className='grid-item'>Landed: </p>    
+                <p className='grid-item'>Last Data: </p>
                 
                 </div>
                 
