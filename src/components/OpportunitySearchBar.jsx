@@ -86,12 +86,39 @@ return(
 
 </div>
 :
-<><h1 className='centered-text'>IMAGE DATALINK</h1>
+<>
+<h1 className='centered-text'>IMAGE DATALINK</h1>
 
 </>}
+<br />
 
+{isInRange ? (<> </>):(<> </>)}
 
+{/* {isInRange ? (
+
+             <div>
+<div class="container">
+<div class="led-box">
+<div class="led-green"></div>
+<p>Valid Date</p>
+</div>
+<p>Valid Date</p>
+</div>
+</div>
+            ) : (
+                <div>
+<div class="container">
+<div class="led-box">
+<div class="led-off">
+</div>
+<p class='led-label'>Valid Date</p>
+</div>
+
+</div>
+</div>
+            )} */}
 <form className='searchbar-div' onSubmit={handleFormSubmit}>
+
 <input 
 className='search-bar' 
 type="text"
@@ -100,34 +127,29 @@ placeholder= 'YYYY-MM-DD'
 value={formState.searchInput}
 onChange={handleChange}  
 />
-
+{isInRange ? (<>
 <button 
-id="search-button" 
+id="search-button-valid" 
 class="material-symbols-outlined" 
 role="button"
 type="submit"
 >
    satellite_alt
-</button>
+</button> </>
+):(
+
+<><button 
+id="search-button-notvalid" 
+class="material-symbols-outlined" 
+role="button"
+type="submit"
+>
+   satellite_alt
+</button> </>)}
+
 
 <br />
-{isInRange ? (
-             <div>
-<div class="container">
-<div class="led-box">
-<div class="led-green"></div>
-</div>
-</div>
-</div>
-            ) : (
-                <div>
-<div class="container">
-<div class="led-box">
-<div class="led-off"></div>
-</div>
-</div>
-</div>
-            )}
+
 
 {/* {photoArray && photoArray.length > 0 ? 
 <div>
@@ -153,7 +175,7 @@ type="submit"
 {isInRange ? (
                 <p> ACTIVATE INITIATE BUTTON TO BEGIN DATA TRANSFER</p>
             ) : (
-                <p className='centered-text'>Enter date between {opportunityDates}</p>
+                <p className='centered-text'>ENTER DATE BETWEEN {opportunityDates}</p>
   
             )}
 
