@@ -9,6 +9,34 @@ const OpportunitySearchBar = ({ photoArray, setPhotoArray }) => {
     const formDate = new Date(formState.searchInput);
     const isInRange = formDate >= startDate && formDate <= endDate;
 
+
+
+    
+function validateDate(dateStr) {
+    const pattern = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+    return pattern.test(dateStr);
+}
+
+const dateValidation= validateDate(formState.searchInput)
+console.log(dateValidation)
+
+
+
+
+
+// validateDate((formState.searchInput))
+
+// if (validateDate(formState.searchInput)) {
+//     console.log("Valid date format.");
+//     const validDateFormat=true
+//     console.log("date is Valid")
+// } else {
+//   const validDateFormat=false
+//   console.log("dateInvalid")
+//   console.log(formState.searchInput)
+// }
+
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormState({
@@ -77,47 +105,34 @@ useEffect(() =>{
 
 return(
 
-<div className='search-container'>
-
-
-{photoArray && photoArray.length > 0 ? 
-<div>
-<h1 className='centered-text'>IMAGE DATALINK</h1>
-
-</div>
-:
-<>
-<h1 className='centered-text'>IMAGE DATALINK</h1>
-
-</>}
+<div >
 <br />
 
-{isInRange ? (<> </>):(<> </>)}
 
-{/* {isInRange ? (
+<div>
+<h2 className='centered-text'>IMAGE DATALINK</h2>
+</div>
 
-             <div>
-<div class="container">
-<div class="led-box">
-<div class="led-green"></div>
-<p>Valid Date</p>
-</div>
-<p>Valid Date</p>
-</div>
-</div>
-            ) : (
+
+{/* {thingYouWantToCheck ? (<> </>):(<> </>)} */}
+
+<div className='search-container'>
+
+{isInRange && dateValidation ? (
                 <div>
-<div class="container">
-<div class="led-box">
-<div class="led-off">
-</div>
-<p class='led-label'>Valid Date</p>
-</div>
+                <p className='centered-text'> DATE VALID: ACTIVATE  </p>
+                <p className='centered-text'> INITIATE BUTTON </p>
+                </div>
+            ) : (
+              <div>
+                <p className='centered-text'>ENTER DATE BETWEEN </p>
+                <p className='centered-text'>{opportunityDates}</p>
+              </div>
+            )}
 
-</div>
-</div>
-            )} */}
-<form className='searchbar-div' onSubmit={handleFormSubmit}>
+
+
+<form className='searchbar-container' onSubmit={handleFormSubmit}>
 
 <input 
 className='search-bar' 
@@ -127,57 +142,39 @@ placeholder= 'YYYY-MM-DD'
 value={formState.searchInput}
 onChange={handleChange}  
 />
-{isInRange ? (<>
-<button 
+
+<br />
+<br /><br /><br /><br />
+
+
+
+<br />
+{isInRange && dateValidation ? (<>
+<button
 id="search-button-valid" 
 class="material-symbols-outlined" 
 role="button"
 type="submit"
 >
-   satellite_alt
+   satellite_alt Initiate
 </button> </>
 ):(
 
 <><button 
 id="search-button-notvalid" 
 class="material-symbols-outlined" 
-role="button"
-type="submit"
+// role="button"
+// type="submit"
 >
    satellite_alt
 </button> </>)}
 
-
-<br />
-
-
-{/* {photoArray && photoArray.length > 0 ? 
-<div>
-<div class="container">
-<div class="led-box">
-<div class="led-green"></div>
-</div>
-</div>
-</div>
-: 
-<div>
-<div class="container">
-<div class="led-box">
-<div class="led-off"></div>
-</div>
-</div>
-</div>
-       } */}
 </form>
 
 
 
-{isInRange ? (
-                <p> ACTIVATE INITIATE BUTTON TO BEGIN DATA TRANSFER</p>
-            ) : (
-                <p className='centered-text'>ENTER DATE BETWEEN {opportunityDates}</p>
-  
-            )}
+
+</div>
 
 </div>
 )
