@@ -5,7 +5,9 @@ color: rgb(205, 204, 204);
 
 font-family: "Orbitron", sans-serif;
 
-
+--IBC: #5e5e5e;
+--IBCInactive: #656565;
+--InitiateActive: #84ff00;
 
 }
 
@@ -140,7 +142,7 @@ width: auto;
   border-radius: 6px;
     /* background: linear-gradient(0deg ,  #533c32f9, #796a5ec9, #f5f3f2ec, #f7f5f5f1 ); */
 
-    border: none;
+    /* border: none; */
     width: 800px;
     height: 1.5em;
     text-align: center;
@@ -148,7 +150,7 @@ width: auto;
     font-family: monospace;
     font-size: x-large;
     box-shadow:  0 0 15px #fecaca65;
-          background-color: rgb(89, 30, 30);
+          background-color: rgb(184, 181, 181);
     /* padding: .4em; */
 }
 .search-bar:focus {
@@ -160,7 +162,7 @@ width: auto;
 .search-container{
     margin-left: 5%;
     margin-right: 5%;
-    background-color: #5c2a1c;
+    /* background-color: #5c2a1c; */
     background-color: #fffffff0;
     color: rgba(25, 27, 24, 0.723);
     font-family: "Orbitron", sans-serif;
@@ -173,41 +175,38 @@ width: auto;
 /* ultimately this should be setup so that if there is data, the button is lit up */
 .material-symbols-outlined{
     margin: 0% auto;
-    /* display: flex; 
-    align-items: center; 
-    justify-content: center; */
-    /* position: relative; */
-        background-color: #e6e4e3;
-    color: rgb(0, 0, 0);
-    border-radius: 7px;
-    padding: 17em;
-    padding-left: 1em;
-    padding-right: 1em;
+    color: var(--InitiateActive);
+    padding: 7em;
+    padding-left: 2em;
+    padding-right: 2em;
     margin: 1%;
-    /* background-color: #674436; */
-    color: rgba(27, 24, 24, 0.715);
-    border: none;
-    box-shadow:  0 0 17px #b3adad,#968989 0 -3px 0 inset;
+
+    box-shadow:  0 0 17px #b3adad,#424242 0 -5px 0 inset;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 7px;
+    border-color: #cac5c5;
+    background-color: var(--IBC);
 }
 
-.material-symbols-outlined:hover{
-background:#ffffff;
-box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff, 0 0 50px #f4baba,#D6D6E7 0 -3px 0 inset;
-box-shadow: 0 0 5px #d0c3ff, 0 0 20px #ffffff,#D6D6E7 0 -4px 0 inset;
-border: none;
-}
 
 .material-symbols-outlined:active {
   box-shadow: #18181d 0 3px 7px inset;
   transform: translateY(1px);
-  background-color: #eee6e2;
+
 }
 
 #search-button-notvalid{
-    background-color: #ff8a8a;
-     box-shadow:  0 0 17px #b3adad,#968989 0 -3px 0 inset;
-        opacity: 0;
-    
+    padding: .5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    color: var(--IBCInactive);
+    box-shadow: none;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 7px;     
+    border-color: #000000;
+        
 }
 
 
@@ -369,22 +368,36 @@ border: none;
         width: 80%;
         font-size: large;
         padding: 2%;
-        background-color:#bebec1; 
+        background-color:#c4c1c1; 
   
     }
 
     .material-symbols-outlined{
+        
         margin-top: -8em;
-        padding: .5em;
-        padding-bottom: .7em;
+        padding-top: .7em;
+        padding-bottom: 1em;
         padding-left: 3em;
         padding-right: 3em;
-        /* margin: 1%; */
         font-size: smaller;
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
+        transform: translateY(-1px);
+        transition: transform 0.4s ease,color .4s ease,box-shadow .4s ease;
+        font-weight: 500;
+        background-color: var(--IBC)
     }
+    #search-button-notvalid{
+        padding-top: .7em;
+        padding-bottom: 1em;
+        padding-left: 3em;
+        padding-right: 3em;
+    transform: translateY(1px);
+    transition: transform 0.4s ease,color .4s ease,box-shadow .4s ease;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 7px;
+    border-color: #cac5c5;
+    
+}
 
 }
 

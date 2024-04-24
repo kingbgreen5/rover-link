@@ -100,7 +100,7 @@ useEffect(() =>{
 
 
 
-     const opportunityDates="2004-01-25  2018-06-11"
+     const opportunityDates="2004-01-25 --- 2018-06-11"
 
 
 return(
@@ -166,7 +166,7 @@ class="material-symbols-outlined"
 // role="button"
 // type="submit"
 >
-   satellite_alt
+   satellite_alt Initiate
 </button> </>)}
 
 </form>
