@@ -46,7 +46,7 @@ const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRov
 
     return (
         <div>
-            <h2 className='centered-text'>Rover Selection</h2>
+            <h2 className='centered-text'>ROVER SELECTION</h2>
         <div className="rover-select-container">
           
             <button

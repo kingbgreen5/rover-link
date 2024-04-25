@@ -7,8 +7,8 @@ return(
 <div className='photoCard-container' >
     {photoArray && photoArray.length > 0 ? 
         <div >
-            <h2 className='data-from-rover-name'>DATA RECEIVED FROM: {photoArray[0].rover.name}</h2>
-           <p>Photos Received: {photoArray.length}</p>
+            <h2 className='data-from-rover-name'>IMAGE DATA RECEIVED FROM: {photoArray[0].rover.name}</h2>
+           <p>Images Received: {photoArray.length}</p>
             <p>Earth Date: {photoArray[0].earth_date}</p>
             <p>Sol: {photoArray[0].sol}</p>
             

@@ -5,13 +5,14 @@ color: rgb(205, 204, 204);
 
 font-family: "Orbitron", sans-serif;
 
---IBC: #5e5e5e;
---IBCInactive: #656565;
---InitiateActive: #84ff00;
+--Monitor: #cecece;
+--IBC: #8c8b8b;
+--IBCInactive: #afafaf;
+--InitiateActive: #71ee0c;
 
 }
 
-
+ 
 .orbitron-font {
   font-family: "Orbitron", sans-serif;
   font-optical-sizing: auto;
@@ -100,22 +101,16 @@ width: auto;
 
 .rover-manifest-card{
     height: 150px;
-    color: rgba(230, 224, 224, 0.455);
+    color: rgba(255, 255, 255, 0.455);
     display: flex; 
     align-items: center; 
     justify-content: center;
 
-
-
-
-
-
 }
 .grid-container{
     padding: 1em;
-    border:#622d2d;
     border-radius: 7px;
-    background-color: #fffffff0;
+    background-color: var(--Monitor);
     color: rgba(25, 27, 24, 0.723);
     font-family: "Orbitron", sans-serif;
     box-shadow: 0 0 5px #d0c3ff, 0 0 10px #ffffff, 0 0 30px #f4baba,#9f9e9e -1px -1px 2px inset;
@@ -140,14 +135,11 @@ width: auto;
 }
 .search-bar{
   border-radius: 6px;
-    /* background: linear-gradient(0deg ,  #533c32f9, #796a5ec9, #f5f3f2ec, #f7f5f5f1 ); */
-
-    /* border: none; */
     width: 800px;
     height: 1.5em;
     text-align: center;
     color: rgb(0, 0, 0);
-    font-family: monospace;
+    font-family: Orbitron;
     font-size: x-large;
     box-shadow:  0 0 15px #fecaca65;
           background-color: rgb(184, 181, 181);
@@ -163,35 +155,38 @@ width: auto;
     margin-left: 5%;
     margin-right: 5%;
     /* background-color: #5c2a1c; */
-    background-color: #fffffff0;
+    background-color: var(--Monitor);
     color: rgba(25, 27, 24, 0.723);
     font-family: "Orbitron", sans-serif;
     box-shadow: 0 0 5px #d0c3ff, 0 0 10px #ffffff, 0 0 30px #f4baba,#9f9e9e -1px -1px 2px inset;
     border-radius: 7px;
        padding: .5em;
+       border: #7b7b7b7d;
+    border-style: solid;
+    border-width: .1em;
 }
 
 /*                                                          Satellite Search BUTTON */
-/* ultimately this should be setup so that if there is data, the button is lit up */
+/* ultimately this should be setup so that if there is data, the button is lit up --------------------------------------------------Button*/
 .material-symbols-outlined{
     margin: 0% auto;
-    color: var(--InitiateActive);
     padding: 7em;
     padding-left: 2em;
     padding-right: 2em;
     margin: 1%;
-
-    box-shadow:  0 0 17px #b3adad,#424242 0 -5px 0 inset;
+    box-shadow:  0 0 2px #94ff42,#5a5959 0 -4px 0 inset;
     border-style: solid;
     border-width: thin;
     border-radius: 7px;
-    border-color: #cac5c5;
+    border-color: #929292;
+    color: var(--InitiateActive);
     background-color: var(--IBC);
+
 }
 
 
 .material-symbols-outlined:active {
-  box-shadow: #18181d 0 3px 7px inset;
+  box-shadow: none;
   transform: translateY(1px);
 
 }
@@ -201,11 +196,12 @@ width: auto;
     padding-left: 1em;
     padding-right: 1em;
     color: var(--IBCInactive);
-    box-shadow: none;
+    box-shadow:  0 0 2px #ffffff00,#5a5959 0 -.2px 0 inset;
     border-style: solid;
     border-width: thin;
     border-radius: 7px;     
-    border-color: #000000;
+    border-color: var(--IBCInactive);
+    background-color: var(--Monitor);
         
 }
 
@@ -222,7 +218,7 @@ width: auto;
 
 
 .photoCard-container{
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
     margin-left: 5%;
     margin-right: 5%;
     max-width: 90%;
@@ -352,15 +348,19 @@ width: auto;
     width: 265px;
     padding: 1.1em;
     padding-top: .7em;
-    background-color: #fffffff0;
+    margin-top: -4%;
 }
 
 .grid-item {
     flex: 1;
     margin: .1%;
 }
+
+.imagedatalink{
+    margin-top: -10%;
+}
 .search-container{
-    margin-top: 0%;
+    margin-top: -5%;
 }
 
 
@@ -368,7 +368,7 @@ width: auto;
         width: 80%;
         font-size: large;
         padding: 2%;
-        background-color:#c4c1c1; 
+        background-color:#afa3a3; 
   
     }
 
@@ -380,10 +380,9 @@ width: auto;
         padding-left: 3em;
         padding-right: 3em;
         font-size: smaller;
-        transform: translateY(-1px);
-        transition: transform 0.4s ease,color .4s ease,box-shadow .4s ease;
+        transform: translateY(-2px);
+        transition: transform 0.4s ease,color .4s ease,box-shadow .2s ease,background-color .4s ease, padding-top .4s ease;
         font-weight: 500;
-        background-color: var(--IBC)
     }
     #search-button-notvalid{
         padding-top: .7em;
@@ -391,11 +390,11 @@ width: auto;
         padding-left: 3em;
         padding-right: 3em;
     transform: translateY(1px);
-    transition: transform 0.4s ease,color .4s ease,box-shadow .4s ease;
+        transition: transform 0.4s ease,color .4s ease,box-shadow .4s ease,background-color .4s ease;
     border-style: solid;
     border-width: thin;
     border-radius: 7px;
-    border-color: #cac5c5;
+
     
 }
 

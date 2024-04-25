@@ -7,11 +7,6 @@ const DataCard = ({ roverManifest, selectedRover }) => {
     const curiosityLocation= 'Gale Crater'
     const opportunityLocation='Endeavour Crater';
     const spiritLocation='Columbia Hills'
-    const spiritObjective='Clues of past water'
-  
-
-
-
     const perseveranceLocation= 'Jezero Crater'
     // const perseveranceDistance ''
 
@@ -23,6 +18,7 @@ return(
                 <div className='grid-container'>
 
                 {/* <h2>Mission Data</h2> */}
+                <p className='grid-item'>Name: {rm.name}</p>
                 <p className='grid-item'>Mission Status: -{rm.status}-</p>
                 {selectedRover === 'Opportunity' && <p className='grid-item'>Location: {opportunityLocation}</p>}
                 {selectedRover === 'Spirit' && <p className='grid-item'>Location: {spiritLocation}</p>}
@@ -41,10 +37,11 @@ return(
             
                <div className='grid-container'>
                {/* <h2>Mission Data</h2> */}
-                <p className='grid-item'>Mission Status: NO ROVER</p>
-                <p className='grid-item'>Location:</p>
-                <p className='grid-item'>Landed:  </p>    
-                <p className='grid-item'>Last Data:  </p>
+                <p className='grid-item'>SELECT ROVER TO BEGIN</p>
+                <p className='grid-item'>Mission Status: ---</p>
+                <p className='grid-item'>Location: ---</p>
+                <p className='grid-item'>Landed: --- </p>    
+                <p className='grid-item'>Last Data: --- </p>
                 
                 </div>
                 

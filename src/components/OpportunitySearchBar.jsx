@@ -105,10 +105,7 @@ useEffect(() =>{
 
 return(
 
-<div >
-<br />
-
-
+<div className='imagedatalink'>
 <div>
 <h2 className='centered-text'>IMAGE DATALINK</h2>
 </div>
