@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header.jsx'
 import RoverSelection from './components/RoverSelection.jsx';
-import CuriositySearchBar from './components/curiositySearchBar.jsx';
+import CuriositySearchBar from './components/CuriositySearchBar.jsx';
 import PhotoCard from './components/PhotoCard.jsx';
 import OpportunitySearchBar from './components/OpportunitySearchBar.jsx';
 import SpiritSearchBar from './components/SpiritSearchBar.jsx';
@@ -22,7 +22,7 @@ export default function App() {
     <DataCard roverManifest={roverManifest} selectedRover={selectedRover}/>
 
       {selectedRover === 'Perseverance' && <PerseveranceSearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData} />  } 
-      {selectedRover === 'Curiosity' && <CuriositySearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData} />  }
+      {selectedRover === 'Curiosity' && <CuriositySearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData} roverManifest={roverManifest} />  }
       {selectedRover === 'Spirit' && <SpiritSearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData}/>}
       {selectedRover === 'Opportunity' && <OpportunitySearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData}/>}
 

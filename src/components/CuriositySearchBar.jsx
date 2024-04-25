@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const CuriositySearchBar = ({ photoArray, setPhotoArray }) => {
+const CuriositySearchBar = ({ photoArray, setPhotoArray,rove }) => {
 
     const [lastDate, setLastDate] = useState([])
     const [formState, setFormState] = useState({ searchInput: ''});

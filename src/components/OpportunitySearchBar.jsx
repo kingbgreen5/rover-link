@@ -24,17 +24,6 @@ console.log(dateValidation)
 
 
 
-// validateDate((formState.searchInput))
-
-// if (validateDate(formState.searchInput)) {
-//     console.log("Valid date format.");
-//     const validDateFormat=true
-//     console.log("date is Valid")
-// } else {
-//   const validDateFormat=false
-//   console.log("dateInvalid")
-//   console.log(formState.searchInput)
-// }
 
 
     const handleChange = (event) => {
@@ -106,8 +95,10 @@ useEffect(() =>{
 return(
 
 <div className='imagedatalink'>
+
 <div>
 <h2 className='centered-text'>IMAGE DATALINK</h2>
+
 </div>
 
 
