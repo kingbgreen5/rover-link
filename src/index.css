@@ -330,7 +330,9 @@ width: auto;
         height: 50px;
         display: none;
     }
-
+    .rover-select-container{
+        margin-top: -5%;
+    }
     .rover-select-button{
        padding-top:1em;
        padding-bottom: 1em;
@@ -345,9 +347,10 @@ width: auto;
 
 
 .grid-container {
-    width: 265px;
-    padding: 1.1em;
-    padding-top: .7em;
+    width: 80%;
+    padding: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
     margin-top: -4%;
 }
 

@@ -1,14 +1,36 @@
+// import React, { useState, useEffect } from 'react';
+
+// const PerseveranceSearchBar = ({ photoArray, setPhotoArray, roverManifest }) => {
+
+//   const rmMax= roverManifest.max_date
+ 
+//     const [lastDate, setLastDate] = useState([])
+//     const [formState, setFormState] = useState({ searchInput: ''});
+//     const startDate = new Date('2021-02-18');
+//     const endDate = new Date({rmMax});
+//     const formDate = new Date(formState.searchInput);
+//     const isInRange = formDate >= startDate && formDate <= endDate;
+
+
+
+
 import React, { useState, useEffect } from 'react';
 
 const PerseveranceSearchBar = ({ photoArray, setPhotoArray, roverManifest }) => {
+    const [lastDate, setLastDate] = useState([]);
+    const [formState, setFormState] = useState({ searchInput: '' });
+    const startDate = new Date('2021-02-18');
+    const [endDate, setEndDate] = useState(null); // Initialize endDate as null
 
-    const [lastDate, setLastDate] = useState([])
-    const [formState, setFormState] = useState({ searchInput: ''});
-    const startDate = new Date('2004-01-25');
-    const endDate = new Date('2018-06-11');
+    useEffect(() => {
+        if (roverManifest && roverManifest.max_date) {
+            const rmMaxDate = new Date(roverManifest.max_date);
+            setEndDate(rmMaxDate); // Set endDate when roverManifest is available
+        }
+    }, [roverManifest]); // Run this effect whenever roverManifest changes
+
     const formDate = new Date(formState.searchInput);
-    const isInRange = formDate >= startDate && formDate <= endDate;
-
+    const isInRange = endDate && formDate >= startDate && formDate <= endDate;
 
 
     
@@ -36,7 +58,7 @@ console.log(dateValidation)
       
       const handleFormSubmit = async (event) => {
         // usersSearchInput = formState.searchInput
-        var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=' + formState.searchInput +  '&z&api_key=0kRnAVYNc2gsCR3nOYw7LjB2uBvKsB75RLIkT25q' 
+        var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?earth_date=' + formState.searchInput +  '&z&api_key=0kRnAVYNc2gsCR3nOYw7LjB2uBvKsB75RLIkT25q' 
         event.preventDefault();
         console.log("Submit Button Clicked")
         // console.log(formState.searchInput);

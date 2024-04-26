@@ -4,11 +4,18 @@ const CuriositySearchBar = ({ photoArray, setPhotoArray, roverManifest }) => {
 
     const [lastDate, setLastDate] = useState([])
     const [formState, setFormState] = useState({ searchInput: ''});
-    const startDate = new Date('2004-01-25');
-    const endDate = new Date('2018-06-11');
-    const formDate = new Date(formState.searchInput);
-    const isInRange = formDate >= startDate && formDate <= endDate;
+    const startDate = new Date('2012-08-06');
+   const [endDate, setEndDate] = useState(null); // Initialize endDate as null
 
+    useEffect(() => {
+        if (roverManifest && roverManifest.max_date) {
+            const rmMaxDate = new Date(roverManifest.max_date);
+            setEndDate(rmMaxDate); // Set endDate when roverManifest is available
+        }
+    }, [roverManifest]); // Run this effect whenever roverManifest changes
+
+    const formDate = new Date(formState.searchInput);
+    const isInRange = endDate && formDate >= startDate && formDate <= endDate;
 
 
     
