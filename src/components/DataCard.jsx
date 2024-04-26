@@ -14,7 +14,7 @@ const DataCard = ({ roverManifest, selectedRover }) => {
 return(
             
             <div className='rover-manifest-card'>
-            {roverManifest ? (
+            {roverManifest ? ( 
                 <div className='grid-container'>
 
                 {/* <h2>Mission Data</h2> */}

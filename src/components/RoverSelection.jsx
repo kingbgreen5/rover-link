@@ -46,9 +46,9 @@ const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRov
 
     return (
         <div>
-            <h2 className='centered-text'>ROVER SELECTION</h2>
+            <h2 className='centered-text'>SELECT ROVER</h2>
         <div className="rover-select-container">
-          
+        
             <button
                 className={`rover-select-button ${selectedRover === 'Perseverance' ? 'selected' : ''}`}
                 onClick={() => handleButtonClick('Perseverance')}
@@ -61,7 +61,7 @@ const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRov
             >
                 CURIOSITY
             </button>
-            <button
+            {/* <button
                 className={`rover-select-button ${selectedRover === 'Opportunity' ? 'selected' : ''}`}
                 onClick={() => handleButtonClick('Opportunity')}
             >
@@ -72,7 +72,7 @@ const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRov
                 onClick={() => handleButtonClick('Spirit')}
             >
                 SPIRIT
-            </button>
+            </button> */}
 
 
           

@@ -1,9 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
-const PerseveranceSearchBar = ({ photoArray, setPhotoArray }) => {
+const PerseveranceSearchBar = ({ photoArray, setPhotoArray, roverManifest }) => {
 
     const [lastDate, setLastDate] = useState([])
     const [formState, setFormState] = useState({ searchInput: ''});
+    const startDate = new Date('2004-01-25');
+    const endDate = new Date('2018-06-11');
+    const formDate = new Date(formState.searchInput);
+    const isInRange = formDate >= startDate && formDate <= endDate;
+
+
+
+    
+function validateDate(dateStr) {
+    const pattern = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+    return pattern.test(dateStr);
+}
+
+const dateValidation= validateDate(formState.searchInput)
+console.log(dateValidation)
 
 
     const handleChange = (event) => {
@@ -57,32 +72,97 @@ const PerseveranceSearchBar = ({ photoArray, setPhotoArray }) => {
    };
   
 useEffect(() =>{
-    // setData(data)
-    // console.log("Data")
-    // console.log(Data)
-//    setPhotoArray(data.photos)
    console.log('photoArray')
    console.log(photoArray)
 },[lastDate])
 
 
-
-
-    const currentDate = new Date();
-
-    // Extract year, month, and day
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is zero-based, so add 1 and pad with leading zeros if necessary
-    const day = String(currentDate.getDate()).padStart(2, '0'); // Pad day with leading zeros if necessary
-
-    // Format the date as YYYY-MM-DD
-    const todaysDate = `${year}-${month}-${day}`
-    const placeholderDates = '2012-08-06 | ' + todaysDate
-     const formattedDate = `${year}-${month}-${day}`;
-
-
 return(
-<div>
+
+<div className='imagedatalink'>
+
+
+
+
+{roverManifest ? (<> 
+<div><h2 className='centered-text'>IMAGE DATALINK</h2></div>
+
+<div className='search-container'>
+{isInRange && dateValidation ? (
+                <div>
+                <p className='centered-text'> DATE VALID: ACTIVATE  </p>
+                <p className='centered-text'> INITIATE BUTTON </p>
+                </div>
+            ) : (
+              <div>
+                <p className='centered-text'>ENTER DATE BETWEEN </p>
+                <p className='centered-text'>{roverManifest.landing_date} --- {roverManifest.max_date}</p>
+              </div>
+            )}
+
+
+
+<form className='searchbar-container' onSubmit={handleFormSubmit}>
+
+<input 
+className='search-bar' 
+type="text"
+name="searchInput"
+placeholder= 'YYYY-MM-DD'
+value={formState.searchInput}
+onChange={handleChange}  
+/>
+
+
+{/* dont delete these it makes the spacing work */}
+<br /><br /><br /><br /><br /><br />
+
+
+
+
+{isInRange && dateValidation ? (<>
+<button
+id="search-button-valid" 
+class="material-symbols-outlined" 
+role="button"
+type="submit"
+>
+   satellite_alt Initiate
+</button> </>
+):(
+
+<><button 
+id="search-button-notvalid" 
+class="material-symbols-outlined" 
+// role="button"
+// type="submit"
+>
+   satellite_alt Initiate
+</button> </>)}
+
+</form>
+
+</div>
+
+
+
+</>):(<> </>)}
+
+</div>
+
+
+
+
+
+)
+}
+
+export default PerseveranceSearchBar;
+
+
+
+
+{/* <div>
 <form className='searchbar-div' onSubmit={handleFormSubmit}>
 <input 
 className='search-bar' 
@@ -131,8 +211,4 @@ type="submit"
 </div>
 :
 <><h1 className='centered-text'>COM LINK: OFFLINE</h1></>}
-</div>
-)
-}
-
-export default PerseveranceSearchBar;
+</div> */}

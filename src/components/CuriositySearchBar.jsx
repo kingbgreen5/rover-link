@@ -1,9 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
-const CuriositySearchBar = ({ photoArray, setPhotoArray,rove }) => {
+const CuriositySearchBar = ({ photoArray, setPhotoArray, roverManifest }) => {
 
     const [lastDate, setLastDate] = useState([])
     const [formState, setFormState] = useState({ searchInput: ''});
+    const startDate = new Date('2004-01-25');
+    const endDate = new Date('2018-06-11');
+    const formDate = new Date(formState.searchInput);
+    const isInRange = formDate >= startDate && formDate <= endDate;
+
+
+
+    
+function validateDate(dateStr) {
+    const pattern = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+    return pattern.test(dateStr);
+}
+
+const dateValidation= validateDate(formState.searchInput)
+console.log(dateValidation)
 
 
     const handleChange = (event) => {
@@ -57,81 +72,87 @@ const CuriositySearchBar = ({ photoArray, setPhotoArray,rove }) => {
    };
   
 useEffect(() =>{
-    // setData(data)
-    // console.log("Data")
-    // console.log(Data)
-//    setPhotoArray(data.photos)
    console.log('photoArray')
    console.log(photoArray)
 },[lastDate])
 
 
 
-
-    const currentDate = new Date();
-
-    // Extract year, month, and day
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is zero-based, so add 1 and pad with leading zeros if necessary
-    const day = String(currentDate.getDate()).padStart(2, '0'); // Pad day with leading zeros if necessary
-
-    // Format the date as YYYY-MM-DD
-    const todaysDate = `${year}-${month}-${day}`
-    const placeholderDates = '2012-08-06 | ' + todaysDate
-     const formattedDate = `${year}-${month}-${day}`;
-
-
 return(
+
+
+<div className='imagedatalink'>
+
+
+{roverManifest ? (<> 
 <div>
-<form className='searchbar-div' onSubmit={handleFormSubmit}>
+<h2 className='centered-text'>IMAGE DATALINK</h2>
+</div>
+
+<div className='search-container'>
+{isInRange && dateValidation ? (
+                <div>
+                <p className='centered-text'> DATE VALID: ACTIVATE  </p>
+                <p className='centered-text'> INITIATE BUTTON </p>
+                </div>
+            ) : (
+              <div>
+                <p className='centered-text'>ENTER DATE BETWEEN </p>
+                <p className='centered-text'>{roverManifest.landing_date} --- {roverManifest.max_date}</p>
+              </div>
+            )}
+
+
+
+<form className='searchbar-container' onSubmit={handleFormSubmit}>
+
 <input 
 className='search-bar' 
 type="text"
 name="searchInput"
-placeholder= {placeholderDates} 
+placeholder= 'YYYY-MM-DD'
 value={formState.searchInput}
 onChange={handleChange}  
 />
 
-<button 
-id="search-button" 
+
+{/* dont delete these it makes the spacing work */}
+<br /><br /><br /><br /><br /><br />
+
+
+
+
+{isInRange && dateValidation ? (<>
+<button
+id="search-button-valid" 
 class="material-symbols-outlined" 
 role="button"
 type="submit"
 >
-   satellite_alt
-</button>
-<br />
+   satellite_alt Initiate
+</button> </>
+):(
 
-{photoArray && photoArray.length > 0 ? 
-<div>
-<div class="container">
-<div class="led-box">
-<div class="led-green"></div>
-</div>
-</div>
-</div>
+<><button 
+id="search-button-notvalid" 
+class="material-symbols-outlined" 
+// role="button"
+// type="submit"
+>
+   satellite_alt Initiate
+</button> </>)}
 
-: 
-<div>
-<div class="container">
-<div class="led-box">
-<div class="led-off"></div>
-</div>
-</div>
-
-</div>
-
-       }
 </form>
 
+</div>
 
-{photoArray && photoArray.length > 0 ? 
-<div>
+
+
+</>):(<> </>)}
+
 </div>
-:
-<><h1 className='centered-text'>COM LINK: OFFLINE</h1></>}
-</div>
+
+
 )
 }
 

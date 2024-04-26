@@ -21,10 +21,10 @@ export default function App() {
     <RoverSelection selectedRover={selectedRover} setSelectedRover={setSelectedRover} roverManifest={roverManifest} setRoverManifest={setRoverManifest}/>
     <DataCard roverManifest={roverManifest} selectedRover={selectedRover}/>
 
-      {selectedRover === 'Perseverance' && <PerseveranceSearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData} />  } 
+      {selectedRover === 'Perseverance' && <PerseveranceSearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData} roverManifest={roverManifest} />  } 
       {selectedRover === 'Curiosity' && <CuriositySearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData} roverManifest={roverManifest} />  }
-      {selectedRover === 'Spirit' && <SpiritSearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData}/>}
-      {selectedRover === 'Opportunity' && <OpportunitySearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData}/>}
+      {/* {selectedRover === 'Spirit' && <SpiritSearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData}/>}
+      {selectedRover === 'Opportunity' && <OpportunitySearchBar photoArray={photoArray} setPhotoArray={setPhotoArray} data={data} setData={setData}/>} */}
 
     <PhotoCard photoArray={photoArray}/>  
 
