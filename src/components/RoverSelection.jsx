@@ -14,7 +14,7 @@ const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRov
         useEffect(() => {
             const fetchRoverManifest = async () => {
     
-                var roverManifestURL = 'https://api.nasa.gov/mars-photos/api/v1/manifests/' + selectedRover + '/?api_key=0kRnAVYNc2gsCR3nOYw7LjB2uBvKsB75RLIkT25q';
+                var roverManifestURL = 'https://api.nasa.gov/mars-photos/api/v1/manifests/' + selectedRover + '/?api_key=QpAIAUTVHAuZExMS6ccB98m1t7b9ZDvlb5UPMdgY';
                 // console.log({ selectedRover });
                 // console.log(roverManifestURL);
                 try {
