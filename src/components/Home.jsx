@@ -27,7 +27,7 @@ const Home = () =>{
       
       const handleFormSubmit = async (event) => {
         // usersSearchInput = formState.searchInput
-        var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=' + formState.searchInput +  '&z&api_key=QpAIAUTVHAuZExMS6ccB98m1t7b9ZDvlb5UPMdgY' 
+        var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=' + formState.searchInput +  '&api_key=QpAIAUTVHAuZExMS6ccB98m1t7b9ZDvlb5UPMdgY' 
         event.preventDefault();
         console.log("Submit Button Clicked")
         // console.log(formState.searchInput);
