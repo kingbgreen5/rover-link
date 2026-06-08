@@ -1,48 +1,57 @@
 import React, { useEffect } from 'react';
-
+import { rovers } from "../data/rover";
 
 const RoverSelection = ({ selectedRover, setSelectedRover, roverManifest, setRoverManifest }) => {
 
     
-    const handleButtonClick = async (rover) => {
-        setSelectedRover(rover);
-        console.log("roverManifest pre set:")
-        console.log(roverManifest)
-           };
+    // const handleButtonClick = async (rover) => {
+    //     setSelectedRover(rover);
+    //     console.log("roverManifest pre set:")
+    //     console.log(roverManifest)
+    //        };
+
+const handleButtonClick = (rover) => {
+    setSelectedRover(rover);
+    setRoverManifest(rovers[rover]);
+};
 
 
-        useEffect(() => {
-            const fetchRoverManifest = async () => {
+        // useEffect(() => {
+        //     const fetchRoverManifest = async () => {
     
-                var roverManifestURL = 'https://api.nasa.gov/mars-photos/api/v1/manifests/' + selectedRover + '/?api_key=QpAIAUTVHAuZExMS6ccB98m1t7b9ZDvlb5UPMdgY';
-                // console.log({ selectedRover });
-                // console.log(roverManifestURL);
-                try {
-                    const response = await fetch(roverManifestURL); // FETCH Request
-                    if (response.ok) {
-                        var roverData = await response.json();
-                        await setRoverManifest(roverData.photo_manifest)
+        //         var roverManifestURL = 'https://api.nasa.gov/mars-photos/api/v1/manifests/' + selectedRover + '/?api_key=0kRnAVYNc2gsCR3nOYw7LjB2uBvKsB75RLIkT25q';
+        //         // console.log({ selectedRover });
+        //         // console.log(roverManifestURL);
+        //         try {
+        //             const response = await fetch(roverManifestURL); // FETCH Request
+        //             if (response.ok) {
+        //                 var roverData = await response.json();
+        //                 await setRoverManifest(roverData.photo_manifest)
 
-                    } else {
-                        throw new Error('Error fetching rover manifest');
-                    }
-                } catch (error) {
-                    console.error('Error fetching rover manifest:', error);
-                }
-            };
+        //             } else {
+        //                 throw new Error('Error fetching rover manifest');
+        //             }
+        //         } catch (error) {
+        //             console.error('Error fetching rover manifest:', error);
+        //         }
+        //     };
         
 
 
-            fetchRoverManifest();
+        //     fetchRoverManifest();
 
-        }, [selectedRover]);
-
-        useEffect(()=>{
-                console.log("Rover Manifest Post set:")
-                console.log(roverManifest)
-        }),[selectedRover]
+        // }, [selectedRover]);
 
 
+
+
+
+
+
+useEffect(() => {
+    console.log("Rover Manifest Post set:");
+    console.log(roverManifest);
+}, [roverManifest]);
 
     return (
         <div>
