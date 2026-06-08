@@ -1,12 +1,12 @@
-
-
 import React, { useState, useEffect } from 'react';
 
-const PerseveranceSearchBar = ({ photoArray, setPhotoArray, roverManifest }) => {
-    const [lastDate, setLastDate] = useState([]);
-    const [formState, setFormState] = useState({ searchInput: '' });
-    const startDate = new Date('2021-02-18');
-    const [endDate, setEndDate] = useState(null); // Initialize endDate as null
+const CuriositySearchBar = ({ photoArray, setPhotoArray, roverManifest }) => {
+
+    const [lastDate, setLastDate] = useState([])
+    const [formState, setFormState] = useState({ searchInput: ''});
+    const startDate = new Date('2012-08-06');
+   const [endDate, setEndDate] = useState(null); // Initialize endDate as null
+   
 
     useEffect(() => {
         if (roverManifest && roverManifest.max_date) {
@@ -25,8 +25,24 @@ function validateDate(dateStr) {
     return pattern.test(dateStr);
 }
 
-const dateValidation= validateDate(formState.searchInput)
-console.log(dateValidation)
+// const dateValidation= validateDate(formState.searchInput)
+// console.log(dateValidation)
+
+
+
+const dateValidation = validateDate(formState.searchInput);
+
+console.log("Input:");
+console.log(formState.searchInput);
+
+console.log("Date Validation:");
+console.log(dateValidation);
+
+
+
+
+
+
 
 
     const handleChange = (event) => {
@@ -44,33 +60,95 @@ console.log(dateValidation)
       
       const handleFormSubmit = async (event) => {
         // usersSearchInput = formState.searchInput
-        var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?earth_date=' + formState.searchInput +  '&z&api_key=0kRnAVYNc2gsCR3nOYw7LjB2uBvKsB75RLIkT25q' 
+        
+        //-OLD API URL (DO NOT DELETE)-----------------
+        // var apiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=' 
+        // + formState.searchInput +  '&z&api_key=0kRnAVYNc2gsCR3nOYw7LjB2uBvKsB75RLIkT25q' 
+
+const apiUrl =
+  `https://api.marsvista.dev/api/v1/rovers/curiosity/photos?earth_date=${formState.searchInput}`;
+
+
         event.preventDefault();
         console.log("Submit Button Clicked")
         // console.log(formState.searchInput);
         // console.log(apiUrl)
    
 
-    //     try {
-    await fetch(apiUrl)                                         // FETCH Request
-    .then(function (response) {
-      if (response.ok) {
 
-        response.json().then(function (data) {
 
-            setPhotoArray(data.photos)
-          setLastDate(formState.searchInput)
-          console.log('Last Date:')
-            console.log(lastDate)
 
-        //   console.log(Data)
-          if (data.photos.length === 0) {
+
+
+
+
+
+    //     //-----------------DO NOT DELETE-----------------WE WILL NEED THIS TO REFERENCE TO BEEF UP THE TEMPORARY NEW FETCH REQUEST WE ARE ADDING.
+    // //     try {
+    // await fetch(apiUrl)                                         // FETCH Request
+    // .then(function (response) {
+    //   if (response.ok) {
+
+    //     response.json().then(function (data) {
+    //         setPhotoArray(data.photos)
+
+
             
-            displayError();
-            return;
-          }
-         }
-         )}})
+    //       setLastDate(formState.searchInput)
+    //       console.log('Last Date:')
+    //         console.log(lastDate)
+
+    //     //   console.log(Data)
+    //       if (data.photos.length === 0) {
+            
+    //         displayError();
+    //         return;
+    //       }
+    //      }
+    //      )}})
+
+
+
+
+const handleFormSubmit = async (event) => {
+  event.preventDefault();
+
+  try {
+    const response = await fetch(apiUrl, {
+      headers: {
+        "X-API-Key": import.meta.env.VITE_MARS_API_KEY,
+      },
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+
+    setPhotoArray(data.photos || []);
+
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       // clear form values
       setFormState({
@@ -85,15 +163,17 @@ useEffect(() =>{
 },[lastDate])
 
 
+
 return(
+
 
 <div className='imagedatalink'>
 
 
-
-
 {roverManifest ? (<> 
-<div><h2 className='centered-text'>IMAGE DATALINK</h2></div>
+<div>
+<h2 className='centered-text'>IMAGE DATALINK</h2>
+</div>
 
 <div className='search-container'>
 {isInRange && dateValidation ? (
@@ -159,64 +239,7 @@ class="material-symbols-outlined"
 </div>
 
 
-
-
-
 )
 }
 
-export default PerseveranceSearchBar;
-
-
-
-
-{/* <div>
-<form className='searchbar-div' onSubmit={handleFormSubmit}>
-<input 
-className='search-bar' 
-type="text"
-name="searchInput"
-placeholder= 'Enter Valid Date' 
-value={formState.searchInput}
-onChange={handleChange}  
-/>
-
-<button 
-id="search-button" 
-class="material-symbols-outlined" 
-role="button"
-type="submit"
->
-   satellite_alt
-</button>
-<br />
-
-{photoArray && photoArray.length > 0 ? 
-<div>
-<div class="container">
-<div class="led-box">
-<div class="led-green"></div>
-</div>
-</div>
-</div>
-
-: 
-<div>
-<div class="container">
-<div class="led-box">
-<div class="led-off"></div>
-</div>
-</div>
-
-</div>
-
-       }
-</form>
-
-
-{photoArray && photoArray.length > 0 ? 
-<div>
-</div>
-:
-<><h1 className='centered-text'>COM LINK: OFFLINE</h1></>}
-</div> */}
+export default CuriositySearchBar;
