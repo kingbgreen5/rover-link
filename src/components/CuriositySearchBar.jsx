@@ -117,20 +117,22 @@ const CuriositySearchBar = ({
     <div className="imagedatalink">
       {roverManifest && (
         <>
-          <div>
+        
             <h2 className="centered-text">
               IMAGE DATALINK
             </h2>
-          </div>
+        
 
           <div className="search-container">
             {isInRange && dateValidation ? (
               <div>
                 <p className="centered-text">
-                  DATE VALID: ACTIVATE
+                  DATE VALID
                 </p>
-                <p className="centered-text">
-                  INITIATE BUTTON
+                     <p className="centered-text">
+                  {roverManifest.landing_date}
+                  {" --- "}
+                  {roverManifest.max_date}
                 </p>
               </div>
             ) : (
