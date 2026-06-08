@@ -9,6 +9,7 @@ const CuriositySearchBar = ({
     searchInput: "",
   });
 
+
   const startDate = new Date("2012-08-06");
   const [endDate, setEndDate] = useState(null);
 
@@ -56,7 +57,17 @@ const CuriositySearchBar = ({
   };
 
   const handleFormSubmit = async (event) => {
+
+  if (!(isInRange && dateValidation)) {
+    console.log("Invalid search prevented");
+    return;
+  }
+
+
     event.preventDefault();
+
+
+
 
     console.log("=================================");
     console.log("Submit Button Clicked");
@@ -108,20 +119,26 @@ const CuriositySearchBar = ({
     // setFormState({ searchInput: "" });
   };
 
+
+
+
+
   useEffect(() => {
     console.log("Current photoArray:");
     console.log(photoArray);
   }, [photoArray]);
+
+  const canSearch = isInRange && dateValidation;
 
   return (
     <div className="imagedatalink">
       {roverManifest && (
         <>
         
-            <h2 className="centered-text">
-              IMAGE DATALINK
+            {/* <h2 className="centered-text">
+             IMAGE DATALINK
             </h2>
-        
+         */}
 
           <div className="search-container">
             {isInRange && dateValidation ? (
@@ -167,7 +184,7 @@ const CuriositySearchBar = ({
               <br />
               <br />
               <br />
-
+{/* 
               <button
                 id={
                   isInRange && dateValidation
@@ -178,7 +195,21 @@ const CuriositySearchBar = ({
                 type="submit"
               >
                 satellite_alt Initiate
-              </button>
+              </button> */}
+
+<button
+  id={
+    canSearch
+      ? "search-button-valid"
+      : "search-button-notvalid"
+  }
+  className="material-symbols-outlined"
+  type="submit"
+  disabled={!canSearch}
+>
+  satellite_alt Initiate
+</button>
+
             </form>
           </div>
         </>

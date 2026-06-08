@@ -55,7 +55,7 @@ useEffect(() => {
 
     return (
         <div>
-            <h2 className='centered-text'>SELECT ROVER</h2>
+            {/* <h2 className='centered-text'>SELECT ROVER</h2> */}
         <div className="rover-select-container">
         
             <button

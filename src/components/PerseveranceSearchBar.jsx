@@ -93,7 +93,7 @@ return(
 
 
 {roverManifest ? (<> 
-<div><h2 className='centered-text'>IMAGE DATALINK</h2></div>
+{/* <div><h2 className='centered-text'>IMAGE DATALINK</h2></div> */}
 
 <div className='search-container'>
 {isInRange && dateValidation ? (
