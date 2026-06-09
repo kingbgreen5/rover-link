@@ -1,6 +1,5 @@
 import React from 'react';
 import DataCard from './DataCard';
-import mobileBanner from ".assets/Mobile Banner.png";
 import mobileBanner from "/assets/Mobile Banner.png";
 import desktopBanner from "/assets/Desktop Banner2-cropped.png";
 
