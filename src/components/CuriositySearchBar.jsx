@@ -81,7 +81,8 @@ const CuriositySearchBar = ({
 
     console.log("API URL:");
     console.log(apiUrl);
-
+    console.log(import.meta.env.VITE_MARS_API_KEY);
+    
     try {
       console.log("Starting Fetch...");
 
