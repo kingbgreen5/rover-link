@@ -5,11 +5,12 @@ import DataCard from './DataCard';
 const Header = () => {
     return (
         <header className ="header">
-        <img className='header-img'    src="/assets/Mars_Red_Planet-af66577e.jpg" alt="" />
-         <img className='header-img'    src="../../assets/Mars_Red_Planet.jpg" alt="" />
-         <div>  <h1>    Red Planet Explorer</h1>
+  
+         <img className='header-img-desktop'    src="../../assets/Desktop Banner2-cropped.png" alt="" />
+         <img className='header-img-mobile'    src="../../assets/Mobile Banner.png" alt="" />
+         {/* <div>  <h1>    Red Planet Explorer</h1>
          <h3>Images from Rovers Curiosity and Perseverance</h3>
-         </div>
+         </div> */}
 
             </header>
     );
