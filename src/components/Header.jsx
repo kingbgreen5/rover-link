@@ -8,7 +8,11 @@ const Header = () => {
         <header className ="header">
 
 <img className='header-img-mobile' src={mobileBanner} alt="" />
-<img className='header-img-desktop' src={desktopBanner} alt="" />
+<img
+style={{
+    height:"500px"
+}}
+ className='header-img-desktop' src={desktopBanner} alt="" />
 
 
             </header>
